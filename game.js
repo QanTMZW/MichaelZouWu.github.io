@@ -68,10 +68,6 @@
     const resetParas = document.querySelectorAll('.resultParas p');
     for (const resetPara of resetParas) {
       resetPara.textContent = '';
-    resetButton = document.createElement('button');
-    resetButton.textContent = 'Reset';
-    document.body.appendChild(resetButton);
-    resetButton.addEventListener('click', resetGame);
     }
 
   function clearResult(){

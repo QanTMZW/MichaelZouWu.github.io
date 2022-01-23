@@ -2,8 +2,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+ul.demo {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
     <title>Code Breaker Game</title>
 <link rel="stylesheet" href="suit.css">
 <link href="http://fonts.cdnfonts.com/css/papyrus" rel="stylesheet">
@@ -11,8 +17,9 @@
 
   <body>
     <div class="score">
-      <p id="score">Score: 10</p>
-            <p id="high">High score: 0</p>
+      <p id="highScore">High score: 0</p>
+      <p id="currentScore">Score: 10</p>
+
           </div>
         </div>
         <div class="title">
@@ -22,10 +29,11 @@
 
     </div>
 
-    <h2><center>Instructions:</h2>
-    <div class="instruction1"><p>Secret code is needed to win this game, and it is between 1-100.<br></p></div>
-    <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the box. <br></p></div>
-    <div class="instruction3"><p>With each wrong code, you will be given a hint of what it is.</p></div>
+  <!--  <h2><center>Instructions:</h2>
+    <div class="instruction1"><p>A secret code number is generated between 1-100.<br></p></div>
+    <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the orange box. <br></p></div>
+    <div class="instruction3"><p>With each wrong code, a hint will appear.</p></div>-->
+    <center><button id="myBtn">Instructions</button></center>
 
 <!--do note that the history comes after you submit a number--->
 
@@ -33,18 +41,69 @@
       <label for="codeField">Insert Code Here: </label><input type="text" id="codeField" class="codeField">
 
       <input type="submit" value="Submit" class="codeSubmit">
-      <span id="guesses"></span>
+      <span id="codes"></span>
     </div>
-    <div class="reset"><p><center><input type="button" value="Reset Code" onClick="reset(this)"></p>
+    <div class="reset"><center>
+      <p><input type="button" value="Reset" onclick="refreshPage()"</p>
     </div>
 
-    <div class="resultParas">
-      <p class="guesses"></p>
+    <div class="logParas">
+      <p class="codes"></p>
+
       <!--history-->
-      <p class="lastCode"></p>
+      <ul class="demo">
+  <li>
+      <p class="lastCode"></li>
+    </ul>
+
       <!--hints-->
       <p class="hints"></p>
     </div>
+
+    <div class = "bottomtext">
+
+        <small>&copy; Copyright 2022, Michael Zou Wu -Code Breaker Game-</small>
+
+    </div>
+
+<!-- The instruction Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <div class="instruction1"><p>A secret code number is generated between 1-100.<br></p></div>
+    </div>
+    <div class="modal-body">
+    <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the orange box. <br></p></div>
+    </div>
+    <div class="modal-footer">
+    <div class="instruction3"><p>With each wrong code, a hint will appear.</p></div>
+    </div>
+  </div>
+
+</div>
+
+<!---You win Modal--->
+
+<div id="win" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <div class="instruction1"><p>A secret code number is generated between 1-100.<br></p></div>
+    </div>
+    <div class="modal-body">
+    <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the orange box. <br></p></div>
+    </div>
+    <div class="modal-footer">
+    <div class="instruction3"><p>With each wrong code, a hint will appear.</p></div>
+    </div>
+  </div>
+
+</div>
 
     <script src="game.js">
     </script>

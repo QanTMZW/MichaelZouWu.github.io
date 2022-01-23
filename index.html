@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>Code Breaker Game</title>
+<link rel="stylesheet" href="suit.css">
+<link href="http://fonts.cdnfonts.com/css/papyrus" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="score">
+      <p id="score">Score: 10</p>
+            <p id="high">High score: 0</p>
+          </div>
+        </div>
+        <div class="title">
+    <h1>Code Breaker Game</h1>
+  </div>
+    <div class="frame">
+
+    </div>
+
+    <h2><center>Instructions:</h2>
+    <div class="instruction1"><p>Secret code is needed to win this game, and it is between 1-100.<br></p></div>
+    <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the box. <br></p></div>
+    <div class="instruction3"><p>With each wrong code, you will be given a hint of what it is.</p></div>
+
+<!--do note that the history comes after you submit a number--->
+
+    <div class=submitBox>
+      <label for="codeField">Insert Code Here: </label><input type="text" id="codeField" class="codeField">
+
+      <input type="submit" value="Submit" class="codeSubmit">
+      <span id="guesses"></span>
+    </div>
+    <div class="reset"><p><center><input type="button" value="Reset Code" onClick="reset(this)"></p>
+    </div>
+
+    <div class="resultParas">
+      <p class="guesses"></p>
+      <!--history-->
+      <p class="lastCode"></p>
+      <!--hints-->
+      <p class="hints"></p>
+    </div>
+
+    <script src="game.js">
+    </script>
+  </body>
+</html>

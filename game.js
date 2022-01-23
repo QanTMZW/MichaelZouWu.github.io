@@ -42,6 +42,8 @@
             hints.textContent = '';
             //need this function to prevent other features from being influenced
             setGameOver();
+            //new highscore function is being called here so that we verify if the high score is higher than what is currently on local storage.
+            newHiScore();
 
           } else if (codeCount === 10) {
             //for if the user inputed 10 wrong number codes and ran out of mistakes
@@ -111,13 +113,13 @@
     codeField.disabled = true;
     //we don't want this to be interactable
     codeSubmit.disabled = true;
-    //adds the functionality of the reset function
-    resetButton.addEventListener('click', resetGame);
     //makes reset button appear
     resetButton = document.createElement('button');
     //adds the text to the button
     resetButton.textContent = 'Reset';
     document.body.appendChild(resetButton);
+    //adds the functionality of the reset function
+    resetButton.addEventListener('click', resetGame);
   }
   //this function clears the history
     function clearlog(){

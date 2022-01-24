@@ -1,11 +1,9 @@
 
   let randomCode = Math.floor(Math.random() * 100) + 1;//this is our random number line with our range. Reason why we have +1 is to inclusively add 100 to this range
-  let rep =10;
-  let mistakes= 10;
+  var scoreText;
+  var score =10;
   let codeCount = 1;
   let resetButton;
-  let highscore = document.getElementById('highScore');
-  let score = document.getElementById('currentScore');
   const codeField = document.querySelector('.codeField');
   const codes = document.querySelector('.codes');
   const hints = document.querySelector('.hints');
@@ -36,7 +34,7 @@
     //our input scenarios. This snipet of code was taken from class.
       if (userInput === randomCode) {
         //for if the user guessed the code number right
-            lastCode.textContent = 'Congratulations! You broke the code!';
+            lastCode.textContent = 'Congratulations! You broke the code! The code is: 01100011 01101001 01110100 01100101 00100000 01111001 01101111 01110101 01110010 00100000 01100011 01101111 01100100 01100101';
             //background of text becomes yellow for above
             lastCode.style.backgroundColor = 'yellow';
             hints.textContent = '';
@@ -50,9 +48,6 @@
             lastCode.textContent = 'Oh no, your log was found out! Restart!';
             //red background for text above
             lastCode.style.backgroundColor = 'red';
-            //mistakes get tallied
-            mistakes++;
-            updateCurrentScore();
             hints.textContent = '';
             //makes sure that the submit functions and other stuff is not interactable
             setGameOver();
@@ -61,25 +56,18 @@
             lastCode.textContent = 'Wrong Code!';
             //background color is red here for the text above
             lastCode.style.backgroundColor = 'red';
-            //mistakes get tallied
-            mistakes++
-            updateCurrentScore();
+
             if(userInput < randomCode) {
               //this is a hint for inputting a code too low compared to the RNG code
               hints.textContent = 'Last code was too low!' ;
               //background color for text above
               hints.style.backgroundColor = 'lightblue';
-              //mistakes get tallied
-              mistakes++
-              updateCurrentScore();
+
             } else if(userInput > randomCode) {
               //this is a hint for inputting a code that is higher than the RNG code
               hints.textContent = 'Last code was too high!';
               //background color for the text above
               hints.style.backgroundColor = 'orange';
-              //mistakes get tallied
-              mistakes++
-              updateCurrentScore();
             }
                 }
                 //this is to count the codes
@@ -92,20 +80,6 @@
 //this allows user input code to be read by the script
   codeSubmit.addEventListener('click', code);
 
-//snipet of code sourced from michael-karen.medium.com
-//this score keeps updating the current score
-  function updateCurrentScore(){
-    for(let i=0; i<score.length;i++){
-      score[i].InnerHTML='Score=${10-mistakes}';
-    }
-  }
-//this function will replace the high score with a different high score if higher
-  function newHiScore(){
-    for(let n = 0; n < highScores.length; n++){
-        highscore = 10 - mistakes;
-        highScores[n].innerHTML = `Hi-Score = ${highScore}`;
-    }
-}
 
 //game over function. makes different parts uninteractable and makes a brand new reset button appear.
   function setGameOver() {

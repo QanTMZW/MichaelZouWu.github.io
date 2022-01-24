@@ -16,9 +16,10 @@ ul.demo {
   </head>
 
   <body>
-    <div class="score">
+    <!--<div class="score">
+      <p>Score: <span id="outputScore"></span></p>
       <p id="highScore">High score: 0</p>
-      <p id="currentScore">Score: 10</p>
+      <p id="currentScore">Score: 10</p>-->
 
           </div>
         </div>
@@ -34,7 +35,24 @@ ul.demo {
     <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the orange box. <br></p></div>
     <div class="instruction3"><p>With each wrong code, a hint will appear.</p></div>-->
     <center><button id="myBtn">Instructions</button></center>
+    <!-- The instruction Modal -->
+    <div id="myModal" class="modal">
 
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <div class="instruction1"><p>A secret code number is generated between 1-100.<br></p></div>
+        </div>
+        <div class="modal-body">
+        <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the orange box. <br></p></div>
+        </div>
+        <div class="modal-footer">
+        <div class="instruction3"><p>With each wrong code, a hint will appear.</p></div>
+        </div>
+      </div>
+
+    </div>
 <!--do note that the history comes after you submit a number--->
 
     <div class=submitBox>
@@ -66,24 +84,7 @@ ul.demo {
 
     </div>
 
-<!-- The instruction Modal -->
-<div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <div class="instruction1"><p>A secret code number is generated between 1-100.<br></p></div>
-    </div>
-    <div class="modal-body">
-    <div class="instruction2"><p>You have 10 turns to correctly break the code by putting a guess in the orange box. <br></p></div>
-    </div>
-    <div class="modal-footer">
-    <div class="instruction3"><p>With each wrong code, a hint will appear.</p></div>
-    </div>
-  </div>
-
-</div>
 
 <!---You win Modal
 
